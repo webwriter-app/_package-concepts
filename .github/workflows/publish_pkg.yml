@@ -35,6 +35,7 @@ jobs:
       - run: npm config set @webwriter:registry='https://registry.npmjs.org/'
       - run: npm ci
       - run: npm run prepare --if-present
+      - run: npm run prepublishOnly --if-present
       - run: npm config set @webwriter:registry='https://npm.pkg.github.com/'
       - run: npm pkg set name=@webwriter-app/$(awk -F\/ '{print substr($NF, 1, length($NF)-1)}' <<< $(npm pkg get name))
       - run: npm publish --access public --ignore-scripts
