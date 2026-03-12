@@ -14,9 +14,10 @@ jobs:
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org/'
-          scope: '@webwriter'
       - run: npm ci
-      - run: npm publish --access public
+      - run: npm publish --access public --provenance
+        env:
+          NPM_CONFIG_PROVENANCE: true
 
   publish-gpr:
     runs-on: ubuntu-latest
